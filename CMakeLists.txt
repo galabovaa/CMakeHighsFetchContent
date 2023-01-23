@@ -15,7 +15,7 @@ set(CI OFF) # disable CI tests
 FetchContent_Declare(
     highs
     GIT_REPOSITORY "https://github.com/ERGO-Code/HiGHS.git"
-    GIT_TAG        "v1.4.1"
+    GIT_TAG        "aa697541e9fd0aafdd8e3be722a913411288bc22"
 )
 set (FAST_BUILD ON CACHE INTERNAL "Fast Build")
 
@@ -24,4 +24,4 @@ list(POP_BACK CMAKE_MESSAGE_INDENT)
 message(CHECK_PASS "fetched")
 
 add_executable(main call_from_cpp.cc)
-target_link_libraries(main libhighs)
+target_link_libraries(main highs::highs)
