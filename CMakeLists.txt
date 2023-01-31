@@ -15,11 +15,9 @@ set(CI OFF) # disable CI tests
 FetchContent_Declare(
     highs
     GIT_REPOSITORY "https://github.com/ERGO-Code/HiGHS.git"
-    GIT_TAG        "cmake-namespace"
-    # d5efdfbedf55796ed03743e0c1380eddcc0f8f23
+    GIT_TAG        "bazel"
 )
 set(FAST_BUILD ON CACHE INTERNAL "Fast Build")
-# set(CMAKE_TARGETS ON CACHE INTERNAL "cmake")
 
 FetchContent_MakeAvailable(highs)
 list(POP_BACK CMAKE_MESSAGE_INDENT)
