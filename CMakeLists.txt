@@ -15,9 +15,11 @@ set(CI OFF) # disable CI tests
 FetchContent_Declare(
     highs
     GIT_REPOSITORY "https://github.com/ERGO-Code/HiGHS.git"
-    GIT_TAG        "bazel"
+    GIT_TAG        "rel18-clean"
+    # GIT_TAG        "bazel"
 )
-set(FAST_BUILD ON CACHE INTERNAL "Fast Build")
+# set(FAST_BUILD ON CACHE INTERNAL "Fast Build")
+# set(ZLIB OFF CACHE INTERNAL "ZLIB OFF")
 
 FetchContent_MakeAvailable(highs)
 list(POP_BACK CMAKE_MESSAGE_INDENT)
