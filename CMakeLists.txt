@@ -2,22 +2,26 @@
 
 cmake_minimum_required(VERSION 3.15)
 
-set(CMAKE_CXX_COMPILER_NAMES clang++ icpc c++ ${CMAKE_CXX_COMPILER_NAMES})
+set(CMAKE_CXX_COMPILER_NAMES clang++ g++ c++ ${CMAKE_CXX_COMPILER_NAMES})
 set(CMAKE_CXX_STANDARD 11)
 
 project(LOAD_HIGHS LANGUAGES CXX)
 
 include(FetchContent)
 
+set(BRANCH "master" CACHE STRING "branch")
+
 message(CHECK_START "Fetching HiGHS")
 list(APPEND CMAKE_MESSAGE_INDENT "  ")
-set(CI OFF) # disable CI tests
+
+message(STATUS "branch is ${BRANCH}")
+
 FetchContent_Declare(
     highs
     GIT_REPOSITORY "https://github.com/ERGO-Code/HiGHS.git"
-    GIT_TAG        "rel18-clean"
-    # GIT_TAG        "bazel"
+    GIT_TAG        "${BRANCH}"
 )
+
 # set(FAST_BUILD ON CACHE INTERNAL "Fast Build")
 # set(ZLIB OFF CACHE INTERNAL "ZLIB OFF")
 
