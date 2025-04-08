@@ -29,5 +29,13 @@ FetchContent_MakeAvailable(highs)
 list(POP_BACK CMAKE_MESSAGE_INDENT)
 message(CHECK_PASS "fetched")
 
+if(APPLE)
+  set(CMAKE_INSTALL_RPATH "@executable_path/../lib")
+elseif(UNIX)
+  set(CMAKE_INSTALL_RPATH "$ORIGIN/../lib")
+endif()
+
 add_executable(main call_from_cpp.cc)
 target_link_libraries(main highs::highs)
+
+install(TARGETS main)
